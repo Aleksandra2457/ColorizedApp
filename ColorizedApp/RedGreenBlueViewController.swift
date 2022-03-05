@@ -28,9 +28,9 @@ class RedGreenBlueViewController: UIViewController {
     
     // MARK: - Public Methods
     @IBAction func sliderValueChanged() {
-        redColorLabel.text = String(format: "%.1f", redColorSlider.value)
-        greenColorLabel.text = String(format: "%.1f", greenColorSlider.value)
-        blueColorLabel.text = String(format: "%.1f", blueColorSlider.value)
+        redColorLabel.text = String(format: "%.2f", redColorSlider.value)
+        greenColorLabel.text = String(format: "%.2f", greenColorSlider.value)
+        blueColorLabel.text = String(format: "%.2f", blueColorSlider.value)
         redGreenBlueView.backgroundColor = UIColor(
             red: CGFloat(redColorSlider.value),
             green: CGFloat(greenColorSlider.value),
