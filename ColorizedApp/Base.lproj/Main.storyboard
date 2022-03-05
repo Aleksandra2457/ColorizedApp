@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9yE-7k-LaF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -11,7 +11,7 @@
         <!--Red Green Blue View Controller-->
         <scene sceneID="cN3-tq-6GE">
             <objects>
-                <viewController id="9yE-7k-LaF" customClass="RedGreenBlueViewController" customModule="RGBView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9yE-7k-LaF" customClass="RedGreenBlueViewController" customModule="ColorizedApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hwh-9Z-e20">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,21 +76,21 @@
                                                 <rect key="frame" x="-2" y="0.0" width="291" height="31"/>
                                                 <color key="minimumTrackTintColor" red="1" green="0.25425197840000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <connections>
-                                                    <action selector="sliderValueChanged:" destination="9yE-7k-LaF" eventType="valueChanged" id="bJV-xm-dkp"/>
+                                                    <action selector="sliderValueChanged" destination="9yE-7k-LaF" eventType="valueChanged" id="4jZ-il-dA8"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bwd-bE-s2d">
                                                 <rect key="frame" x="-2" y="35" width="291" height="31"/>
                                                 <color key="minimumTrackTintColor" red="0.030670948810000001" green="1" blue="0.036061575370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <connections>
-                                                    <action selector="sliderValueChanged:" destination="9yE-7k-LaF" eventType="valueChanged" id="VxV-fW-vyC"/>
+                                                    <action selector="sliderValueChanged" destination="9yE-7k-LaF" eventType="valueChanged" id="ZQC-4x-hBz"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uCN-cc-Hhh">
                                                 <rect key="frame" x="-2" y="70" width="291" height="31"/>
                                                 <color key="minimumTrackTintColor" systemColor="linkColor"/>
                                                 <connections>
-                                                    <action selector="sliderValueChanged:" destination="9yE-7k-LaF" eventType="valueChanged" id="e0f-XU-pds"/>
+                                                    <action selector="sliderValueChanged" destination="9yE-7k-LaF" eventType="valueChanged" id="ZoW-xr-imh"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
@@ -115,18 +115,18 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="blueColorLabel" destination="0aq-mN-0ol" id="LBc-L1-ZR8"/>
-                        <outlet property="blueColorSlider" destination="uCN-cc-Hhh" id="VHS-Mq-SRy"/>
-                        <outlet property="greenColorLabel" destination="emW-Uz-B8x" id="QQ3-be-7bi"/>
-                        <outlet property="greenColorSlider" destination="bwd-bE-s2d" id="0nk-cQ-3Vp"/>
-                        <outlet property="redColorLabel" destination="DLx-6R-aM6" id="gaQ-Uj-RIK"/>
-                        <outlet property="redColorSlider" destination="RBF-bd-IUC" id="Eph-wk-0Zn"/>
-                        <outlet property="redGreenBlueView" destination="ywG-fR-EFV" id="GPy-rB-EUo"/>
+                        <outlet property="blueColorLabel" destination="0aq-mN-0ol" id="gxx-KD-IXd"/>
+                        <outlet property="blueColorSlider" destination="uCN-cc-Hhh" id="8fX-UL-m7i"/>
+                        <outlet property="greenColorLabel" destination="emW-Uz-B8x" id="rYB-9q-w1r"/>
+                        <outlet property="greenColorSlider" destination="bwd-bE-s2d" id="ASE-ZS-oz2"/>
+                        <outlet property="redColorLabel" destination="DLx-6R-aM6" id="0X8-pO-d30"/>
+                        <outlet property="redColorSlider" destination="RBF-bd-IUC" id="xvy-so-Y1F"/>
+                        <outlet property="redGreenBlueView" destination="ywG-fR-EFV" id="b8p-HL-OOF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EU8-5D-rr3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="401" y="-524"/>
+            <point key="canvasLocation" x="912" y="-485"/>
         </scene>
     </scenes>
     <resources>
