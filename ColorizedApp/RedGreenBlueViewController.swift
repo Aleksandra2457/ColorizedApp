@@ -24,19 +24,24 @@ class RedGreenBlueViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         redGreenBlueView.layer.cornerRadius = 15
-        updateUserInterface()
+        setColorToView()
     }
     
     // MARK: - Public Methods
-    @IBAction func sliderValueChanged() {
-        updateUserInterface()
+    @IBAction func sliderValueChanged(_ slider: UISlider) {
+        setColorToView()
+        switch slider {
+        case redColorSlider:
+            setTextFor(labels: redColorLabel)
+        case greenColorSlider:
+            setTextFor(labels: greenColorLabel)
+        default:
+            setTextFor(labels: blueColorLabel)
+        }
     }
     
     // MARK: - Private Methods
-    private func updateUserInterface() {
-        redColorLabel.text = String(format: "%.2f", redColorSlider.value)
-        greenColorLabel.text = String(format: "%.2f", greenColorSlider.value)
-        blueColorLabel.text = String(format: "%.2f", blueColorSlider.value)
+    private func setColorToView() {
         let redColor = CGFloat(redColorSlider.value)
         let greenColor = CGFloat(greenColorSlider.value)
         let blueColor = CGFloat(blueColorSlider.value)
@@ -46,6 +51,23 @@ class RedGreenBlueViewController: UIViewController {
             blue: blueColor,
             alpha: 1
         )
+    }
+    
+    private func setTextFor(labels: UILabel...) {
+        labels.forEach { label in
+            switch label {
+            case redColorLabel:
+                redColorLabel.text = string(from: redColorSlider)
+            case greenColorLabel:
+                greenColorLabel.text = string(from: greenColorSlider)
+            default:
+                blueColorLabel.text = string(from: blueColorSlider)
+            }
+        }
+    }
+    
+    private func string(from slider: UISlider) -> String {
+        String(format: "%.2f", slider.value)
     }
     
 }

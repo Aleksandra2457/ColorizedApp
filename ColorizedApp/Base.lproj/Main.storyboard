@@ -76,21 +76,21 @@
                                                 <rect key="frame" x="-2" y="0.0" width="247.66666666666666" height="31"/>
                                                 <color key="minimumTrackTintColor" red="1" green="0.25425197840000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <connections>
-                                                    <action selector="sliderValueChanged" destination="9yE-7k-LaF" eventType="valueChanged" id="4jZ-il-dA8"/>
+                                                    <action selector="sliderValueChanged:" destination="9yE-7k-LaF" eventType="valueChanged" id="gtA-Ih-Aec"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.27000000000000002" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bwd-bE-s2d">
                                                 <rect key="frame" x="-2" y="35" width="247.66666666666666" height="31"/>
                                                 <color key="minimumTrackTintColor" red="0.030670948810000001" green="1" blue="0.036061575370000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <connections>
-                                                    <action selector="sliderValueChanged" destination="9yE-7k-LaF" eventType="valueChanged" id="ZQC-4x-hBz"/>
+                                                    <action selector="sliderValueChanged:" destination="9yE-7k-LaF" eventType="valueChanged" id="SVc-VN-Ssy"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.48999999999999999" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="uCN-cc-Hhh">
                                                 <rect key="frame" x="-2" y="70" width="247.66666666666666" height="31"/>
                                                 <color key="minimumTrackTintColor" systemColor="linkColor"/>
                                                 <connections>
-                                                    <action selector="sliderValueChanged" destination="9yE-7k-LaF" eventType="valueChanged" id="ZoW-xr-imh"/>
+                                                    <action selector="sliderValueChanged:" destination="9yE-7k-LaF" eventType="valueChanged" id="KQ7-eQ-vdg"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
