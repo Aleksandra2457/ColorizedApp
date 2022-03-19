@@ -26,15 +26,22 @@ class SettingsViewController: UIViewController {
     
     // MARK: - Public Properties
     var color: UIColor!
+    var delegate: SettingsViewControllerDelegate!
+    
+    // MARK: - Private Properties
+    private var red: CGFloat = 0
+    private var green: CGFloat = 0
+    private var blue: CGFloat = 0
+    private var alpha: CGFloat = 1
     
     // MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         redGreenBlueView.layer.cornerRadius = 15
-        setColorToView()
+        updateUI()
     }
     
-    // MARK: - Public Methods
+    // MARK: - IB Actions
     @IBAction func sliderValueChanged(_ slider: UISlider) {
         setColorToView()
         switch slider {
@@ -67,6 +74,13 @@ class SettingsViewController: UIViewController {
         setColorToView()
     }
     
+    @IBAction func doneButtonPressed(_ sender: UIButton) {
+        view.endEditing(true)
+        color = redGreenBlueView.backgroundColor
+        delegate.setColorToView(with: color)
+        dismiss(animated: true)
+    }
+    
     // MARK: - Private Methods
     private func setColorToView() {
         let redColor = CGFloat(redColorSlider.value)
@@ -76,7 +90,7 @@ class SettingsViewController: UIViewController {
             red: redColor,
             green: greenColor,
             blue: blueColor,
-            alpha: 1
+            alpha: alpha
         )
     }
     
@@ -104,6 +118,25 @@ class SettingsViewController: UIViewController {
                 blueColorTextField.text = string(from: blueColorSlider)
             }
         }
+    }
+    
+    private func getColor() {
+        guard let color = color else { return }
+        color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+    }
+    
+    private func setValueForSliders() {
+        redColorSlider.value = Float(red)
+        greenColorSlider.value = Float(green)
+        blueColorSlider.value = Float(blue)
+    }
+    
+    private func updateUI() {
+        getColor()
+        setValueForSliders()
+        setColorToView()
+        setTextFor(labels: redColorLabel, greenColorLabel, blueColorLabel)
+        setTextFor(textFields: redColorTextField, greenColorTextField, blueColorTextField)
     }
     
     private func string(from slider: UISlider) -> String {
