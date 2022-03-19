@@ -120,7 +120,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    private func getColor() {
+    private func getRGBColor() {
         guard let color = color else { return }
         color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
     }
@@ -132,7 +132,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func updateUI() {
-        getColor()
+        getRGBColor()
         setValueForSliders()
         setColorToView()
         setTextFor(labels: redColorLabel, greenColorLabel, blueColorLabel)
