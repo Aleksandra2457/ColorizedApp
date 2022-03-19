@@ -132,7 +132,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1b-gj-NYV">
-                                <rect key="frame" x="179" y="588" width="56" height="41"/>
+                                <rect key="frame" x="179" y="721" width="56" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Done">
@@ -147,12 +147,12 @@
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                         <constraints>
                             <constraint firstItem="ywG-fR-EFV" firstAttribute="leading" secondItem="Zry-su-ve9" secondAttribute="leading" constant="16" id="34e-jT-uNM"/>
-                            <constraint firstItem="J1b-gj-NYV" firstAttribute="top" secondItem="woR-oA-Ev1" secondAttribute="bottom" constant="150" id="3g5-P2-Ueb"/>
                             <constraint firstItem="Zry-su-ve9" firstAttribute="trailing" secondItem="ywG-fR-EFV" secondAttribute="trailing" constant="16" id="84E-lu-Tqy"/>
                             <constraint firstItem="J1b-gj-NYV" firstAttribute="centerX" secondItem="hwh-9Z-e20" secondAttribute="centerX" id="89w-xh-wqj"/>
                             <constraint firstItem="ywG-fR-EFV" firstAttribute="top" secondItem="Zry-su-ve9" secondAttribute="top" constant="40" id="Idz-rW-HEi"/>
                             <constraint firstItem="ywG-fR-EFV" firstAttribute="height" secondItem="hwh-9Z-e20" secondAttribute="height" multiplier="0.236607" id="Jci-wd-wCq"/>
                             <constraint firstItem="ywG-fR-EFV" firstAttribute="centerX" secondItem="hwh-9Z-e20" secondAttribute="centerX" id="MTB-L4-DXh"/>
+                            <constraint firstItem="Zry-su-ve9" firstAttribute="bottom" secondItem="J1b-gj-NYV" secondAttribute="bottom" constant="100" id="bRf-jb-0mJ"/>
                             <constraint firstItem="woR-oA-Ev1" firstAttribute="top" secondItem="ywG-fR-EFV" secondAttribute="bottom" constant="30" id="bhU-Uv-z3H"/>
                             <constraint firstItem="woR-oA-Ev1" firstAttribute="leading" secondItem="Zry-su-ve9" secondAttribute="leading" constant="16" id="gq5-Mv-SL0"/>
                             <constraint firstAttribute="trailing" secondItem="woR-oA-Ev1" secondAttribute="trailing" constant="16" id="nl8-I5-ej7"/>
