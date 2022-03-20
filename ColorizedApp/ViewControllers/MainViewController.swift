@@ -13,6 +13,7 @@ protocol SettingsViewControllerDelegate {
 
 class MainViewController: UIViewController {
 
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -24,7 +25,7 @@ class MainViewController: UIViewController {
     }
 
 }
-
+    // MARK: - SettingsViewControllerDelegate
 extension MainViewController: SettingsViewControllerDelegate {
     func setColorToView(with color: UIColor) {
         view.backgroundColor = color
