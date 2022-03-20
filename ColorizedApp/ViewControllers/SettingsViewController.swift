@@ -147,7 +147,13 @@ class SettingsViewController: UIViewController {
 }
 
 // MARK: - Keyboard
-extension SettingsViewController: UITextViewDelegate {
+extension SettingsViewController: UITextFieldDelegate {
+    // hiding the keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
+    
     private func createToolBarWithDoneButton() {
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: nil)
         let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
