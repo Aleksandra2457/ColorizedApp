@@ -39,6 +39,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         redGreenBlueView.layer.cornerRadius = 15
         updateUI()
+        createToolBarWithDoneButton()
     }
     
     // MARK: - IB Actions
@@ -144,4 +145,20 @@ class SettingsViewController: UIViewController {
     }
     
 }
+
+// MARK: - Keyboard
+extension SettingsViewController: UITextViewDelegate {
+    private func createToolBarWithDoneButton() {
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: nil)
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        toolbar.setItems([space, doneButton], animated: false)
+        
+        redColorTextField.inputAccessoryView = toolbar
+        greenColorTextField.inputAccessoryView = toolbar
+        blueColorTextField.inputAccessoryView = toolbar
+    }
+}
+
 
