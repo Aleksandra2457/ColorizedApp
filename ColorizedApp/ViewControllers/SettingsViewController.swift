@@ -59,8 +59,16 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func textFieldValueChanged(_ sender: UITextField) {
-        guard let text = sender.text else { return }
-        guard let value = Float(text) else { return }
+        guard sender.text?.isEmpty != nil,
+              let text = sender.text,
+              let value = Float(text),
+              value >= 0.0 && value <= 1.0 else {
+            showAlert(
+                title: "Error 🥲",
+                message: "Please enter value from 0.00 to 1.00",
+                textField: sender)
+            return
+        }
         switch sender {
         case redColorTextField:
             redColorSlider.setValue(value, animated: true)
@@ -146,17 +154,30 @@ class SettingsViewController: UIViewController {
     
 }
 
-// MARK: - Keyboard
-extension SettingsViewController: UITextFieldDelegate {
+    // MARK: - Keyboard
+extension SettingsViewController {
     // hiding the keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
     }
+
+    @objc func doneBarButtonPressed() {
+        view.endEditing(true)
+    }
     
     private func createToolBarWithDoneButton() {
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: nil)
-        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneButton = UIBarButtonItem(
+            title: "Done",
+            style: .done,
+            target: self,
+            action: #selector(doneBarButtonPressed)
+        )
+        let space = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: self,
+            action: nil
+        )
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         toolbar.setItems([space, doneButton], animated: false)
@@ -167,4 +188,14 @@ extension SettingsViewController: UITextFieldDelegate {
     }
 }
 
-
+    // MARK: - Create Alert To Show
+extension SettingsViewController {
+    private func showAlert(title: String, message: String, textField: UITextField? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            textField?.text = ""
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+}
