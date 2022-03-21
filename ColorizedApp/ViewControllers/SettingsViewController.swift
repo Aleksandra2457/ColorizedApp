@@ -28,12 +28,6 @@ class SettingsViewController: UIViewController {
     var color: UIColor!
     var delegate: SettingsViewControllerDelegate!
     
-    // MARK: - Private Properties
-    private var red: CGFloat = 0
-    private var green: CGFloat = 0
-    private var blue: CGFloat = 0
-    private var alpha: CGFloat = 1
-    
     // MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +71,7 @@ class SettingsViewController: UIViewController {
             red: redColor,
             green: greenColor,
             blue: blueColor,
-            alpha: alpha
+            alpha: 1
         )
     }
     
@@ -107,19 +101,14 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    private func getRGBColor() {
-        guard let color = color else { return }
-        color.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-    }
-    
     private func setValueForSliders() {
-        redColorSlider.value = Float(red)
-        greenColorSlider.value = Float(green)
-        blueColorSlider.value = Float(blue)
+        let ciColor = CIColor(color: color)
+        redColorSlider.value = Float(ciColor.red)
+        greenColorSlider.value = Float(ciColor.green)
+        blueColorSlider.value = Float(ciColor.blue)
     }
     
     private func updateUI() {
-        getRGBColor()
         setValueForSliders()
         setColorToView()
         setTextFor(labels: redColorLabel, greenColorLabel, blueColorLabel)
