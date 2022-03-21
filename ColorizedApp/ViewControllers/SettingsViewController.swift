@@ -37,6 +37,9 @@ class SettingsViewController: UIViewController {
     // MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        redColorTextField.delegate = self
+        greenColorTextField.delegate = self
+        blueColorTextField.delegate = self
         redGreenBlueView.layer.cornerRadius = 15
         updateUI()
         createToolBarWithDoneButton()
@@ -56,31 +59,6 @@ class SettingsViewController: UIViewController {
             setTextFor(labels: blueColorLabel)
             setTextFor(textFields: blueColorTextField)
         }
-    }
-    
-    @IBAction func textFieldValueChanged(_ sender: UITextField) {
-        guard sender.text?.isEmpty != nil,
-              let text = sender.text,
-              let value = Float(text),
-              value >= 0.0 && value <= 1.0 else {
-            showAlert(
-                title: "Error 🥲",
-                message: "Please enter value from 0.00 to 1.00",
-                textField: sender)
-            return
-        }
-        switch sender {
-        case redColorTextField:
-            redColorSlider.setValue(value, animated: true)
-            setTextFor(labels: redColorLabel)
-        case greenColorTextField:
-            greenColorSlider.setValue(value, animated: true)
-            setTextFor(labels: greenColorLabel)
-        default:
-            blueColorSlider.setValue(value, animated: true)
-            setTextFor(labels: blueColorLabel)
-        }
-        setColorToView()
     }
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
@@ -155,11 +133,37 @@ class SettingsViewController: UIViewController {
 }
 
     // MARK: - Keyboard
-extension SettingsViewController {
+extension SettingsViewController: UITextFieldDelegate {
+    
     // hiding the keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard textField.text?.isEmpty != nil,
+              let text = textField.text,
+              let value = Float(text),
+              value >= 0.0 && value <= 1.0 else {
+            showAlert(
+                title: "Error 🥲",
+                message: "Please enter value from 0.00 to 1.00",
+                textField: textField)
+            return
+        }
+        switch textField {
+        case redColorTextField:
+            redColorSlider.setValue(value, animated: true)
+            setTextFor(labels: redColorLabel)
+        case greenColorTextField:
+            greenColorSlider.setValue(value, animated: true)
+            setTextFor(labels: greenColorLabel)
+        default:
+            blueColorSlider.setValue(value, animated: true)
+            setTextFor(labels: blueColorLabel)
+        }
+        setColorToView()
     }
 
     @objc func doneBarButtonPressed() {
